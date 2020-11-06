@@ -11,7 +11,7 @@
             integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
             crossorigin="anonymous"></script>
 
-    <title>Radio Store</title>
+    <title>Radio Store test</title>
 </head>
 <body>
     <header class="header">
