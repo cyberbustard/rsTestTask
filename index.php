@@ -198,44 +198,153 @@
                 <button class="w3-button w3-display-right w3-black" onclick="plusDivs(1)">&#10095;</button>
             </div>
     </section>
-
-    <section class="products-type ">
+    <section class="products-type  ">
         <div class="container">
-            <div class="card-deck mb-3 text-center ">
-                <div class="card mb-4 shadow-sm">
-                    <div class="card-body-1">
-                        <h1 class="card-title pricing-card-title"> АКЦИОННЫЕ ТОВАРЫ</h1>
-                        <div class="horizontal-line-1"></div>
-                        <p class="card-content">Поступление нового товара за <br>
-                            последние 7 календарных дней. <br>
-                            Лучшие цены в Украине</p>
-                        <button type="button" class="btn  rounded btn-details-1">ПОДРОБНЕЕ</button>
-                    </div>
-                </div>
-                <div class="card mb-4 shadow-sm">
+          <div class="row">
+              <div class="col-md-4">
+                  <div class="card mb-4 shadow-sm">
+                      <div class="card-body-1">
+                          <h1 class="card-title pricing-card-title"> АКЦИОННЫЕ ТОВАРЫ</h1>
+                          <div class="horizontal-line-1"></div>
+                          <p class="card-content">&nbsp; Поступление нового товара за <br>
+                              последние 7 календарных дней. <br>
+                              &nbsp;&nbsp;Лучшие цены в Украине</p>
+                          <button type="button" class="btn  rounded btn-details-1">ПОДРОБНЕЕ</button>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="card mb-4 shadow-sm">
 
-                    <div class="card-body-2">
-                        <h1 class="card-title pricing-card-title">КАТАЛОГ ТОВАРОВ</h1>
-                        <div class="horizontal-line-2"></div>
-                        <p class="card-content">Поступление нового товара за <br>
-                            последние 7 календарных дней. <br>
-                            Лучшие цены в Украине</p>
-                        <button type="button" class="btn rounded btn-details-2">ПОДРОБНЕЕ</button>
-                    </div>
-                </div>
-                <div class="card mb-4 shadow-sm">
-                    <div class="card-body-3">
-                        <h1 class="card-title pricing-card-title">НОВЫЕ ПОСТУПЛЕНИЯ</h1>
-                        <div class="horizontal-line-3"></div>
-                        <p class="card-content">Поступление нового товара за <br>
-                            последние 7 календарных дней. <br>
-                            Лучшие цены в Украине</p>
-                        <button type="button" class="btn rounded  btn-details-3">ПОДРОБНЕЕ</button>
-                    </div>
-                </div>
-            </div>
+                      <div class="card-body-2">
+                          <h1 class="card-title pricing-card-title">КАТАЛОГ ТОВАРОВ</h1>
+                          <div class="horizontal-line-2"></div>
+                          <p class="card-content">&nbsp;Поступление нового товара за <br>
+                              последние 7 календарных дней. <br>
+                              &nbsp;&nbsp;Лучшие цены в Украине</p>
+                          <button type="button" class="btn rounded btn-details-2">ПОДРОБНЕЕ</button>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="card mb-4 shadow-sm">
+                      <div class="card-body-3">
+                          <h1 class="card-title pricing-card-title">НОВЫЕ ПОСТУПЛЕНИЯ</h1>
+                          <div class="horizontal-line-3"></div>
+                          <p class="card-content">&nbsp;Поступление нового товара за <br>
+                              последние 7 календарных дней. <br>
+                              &nbsp;&nbsp;Лучшие цены в Украине</p>
+                          <button type="button" class="btn rounded  btn-details-3">ПОДРОБНЕЕ</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+
 
     </section>
+
+
+    <section class="best__products">
+        <div class="container">
+            <div class="title-block d-flex" >
+                <h3 class="section__title">Лучшие предложения</h3>
+                <div class="title__line"></div>
+                <div class="arrow-left-wrapper">
+                    <img src="img/arr-left.png">
+                </div>
+                <div class="arrow-right-wrapper">
+                    <img src="img/arr-right.png">
+                </div>
+
+
+
+            </div>
+
+
+
+            <div class="row">
+                <?php
+                    require_once "db.php";
+                    $sql = 'SELECT * FROM `products` ORDER BY `id` ';
+                    $query =$pdo->query($sql);
+
+                    while($row = $query->fetch(PDO::FETCH_OBJ)){
+
+                       ?>
+
+                            <div class="col-md-2 product__cart ">
+                                        <?php
+                                            if ($row->status == "new"){ ?>
+                                                <div class="ing-new">
+                                                    <img class="new_img" src="img/yel.png" alt="">
+                                                    <p class="new-img-txt">НОВЫЙ</p>
+
+                                                </div>
+
+
+                                           <?php } 
+                                                else{?>
+                                                    <div class="ing-sale">
+                                                        <img src="img/new.png">
+                                                        <p class="sale-img-txt">АКЦИЯ</p>
+                                                    </div>
+                                                <?php } ?>
+
+
+
+                                        <img src="img/ada.png" alt="">
+
+                                        <div class="product__title">
+                                            <p class="product__title"><?= $row->title ?></p>
+                                        </div>
+                                        <div class="product__options d-flex">
+                                            <div class="del__avaliable__options">
+                                                <p class="product__list_delivery"><img src="img/delivery.png"> Есть доставка</p>
+                                                <p class="product__list_avaliable"><img src="img/gal.png" >В наличии 23 шт.</p>
+                                            </div>
+                                            <div class="product__list-price">
+                                                <p class="product__price">Цена за шт. <br> <p class="price__number"><?= $row->price ?> грн</p></p>
+                                            </div>
+                                        </div>
+                                        <div class="product__list-buttons d-flex">
+                                            <button class="buy--item rounded">КУПИТЬ</button>
+                                            <a class="buy__one-click" href="#">Заказать в 1 клик</a>
+
+                                        </div>
+
+
+
+
+
+                            </div>
+
+                    <?php } ?>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <footer class="global__footer">
+        <div class="container">
+
+        </div>
+
+
+    </footer>
+
+
+
+
+
+
+
+
+
 
 
 

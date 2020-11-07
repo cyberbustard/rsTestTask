@@ -319,6 +319,8 @@ input[type="textfield"]::placeholder {
 .btn-details-1{
     color: #ffffff;
     background-color: #88ce0b ;
+    margin-left: 124px;
+
 
     height: 60px;
     width: 175px;
@@ -332,6 +334,7 @@ input[type="textfield"]::placeholder {
     height: 60px;
     width: 175px;
     font-size: 22px;
+    margin-left: 124px;
     font-family: 'Roboto Light' , sans-serif;
     font-weight: 400;
 }
@@ -341,6 +344,7 @@ input[type="textfield"]::placeholder {
     background-color: #f76c06 ;
     height: 60px;
     width: 175px;
+    margin-left: 124px;
     font-size: 22px;
     font-family: 'Roboto Light' , sans-serif;
     font-weight: 400;
@@ -359,6 +363,7 @@ input[type="textfield"]::placeholder {
 
 .card-title{
     padding-top: 105px;
+    text-align: center;
 }
 
 .card-content{
@@ -366,6 +371,8 @@ input[type="textfield"]::placeholder {
     font-size: 18px;
     font-family: 'Roboto Light' , sans-serif;
     font-weight: 400;
+
+    text-align: center;
 
 }
 
@@ -404,3 +411,145 @@ input[type="textfield"]::placeholder {
     display: block;
     margin-bottom: 40px;
 }
+
+.products-type{
+    margin-top: 70px;
+    margin-bottom: 90px;
+}
+
+.title__line{
+    border: solid #88ce0b;
+    border-width: 0 0 3px 0;
+    width: 872px;
+    margin-bottom: 27px;
+    margin-left: 5px;
+}
+.title-block{
+    margin-bottom: 32px;
+
+}
+
+
+.section__title{
+    font-size: 36px;
+    font-family: 'Roboto Light' , sans-serif;
+    font-weight: 400;
+    color: #000000;
+}
+
+.arrow-left-wrapper{
+    margin-left: 20px;
+    height: 43px;
+    width: 61px;
+}
+
+.arrow-right-wrapper{
+    margin-left: 10px;
+    height: 43px;
+    width: 61px;
+}
+
+.ing-sale{
+    position: relative;
+}
+
+.sale-img-txt , .new-img-txt {
+    position: absolute;
+    top: 7px;
+    left: 14px;
+    font-size: 14px;
+    font-family: 'Roboto Light' , sans-serif;
+    font-weight: bold;
+    color			: white;
+    font-size: 10px;
+}
+
+.ing-new , .ing-sale{
+    margin-bottom: 10px;
+}
+
+
+
+.product__cart{
+    margin-left: 25px;
+
+    height: 464px;
+    min-width: 330px;
+    border: 2px  solid gray;
+}
+
+.ing-new{
+    position: relative;
+    left: 0;
+}
+
+.buy--item{
+    width: 120px;
+    height: 42px;
+    font-size: 18px;
+    font-family: 'Roboto Light' , sans-serif;
+    font-weight: 400;
+    color: #ffffff ;
+    background-color: #f76c06 ;
+    border: none;
+}
+
+.buy__one-click{
+    margin-left: 30px;
+    padding: 0;
+}
+
+.product__list-price{
+    margin-left: 55px;
+}
+.buy__one-click{
+    font-size: 14px;
+    color: #6b6b6b;
+    font-family: 'Roboto Light' , sans-serif;
+    font-weight: 400;
+
+}
+
+.product__price{
+    font-size: 12px;
+    color: #6b6b6b;
+    font-family: 'Roboto Light' , sans-serif;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+.product__list_delivery{
+    font-size: 12px;
+    color: #6b6b6b;
+    font-family: 'Roboto Light' , sans-serif;
+    font-weight: 400;
+    margin-bottom: 0;
+
+}
+.product__list_avaliable{
+    font-size: 12px;
+    color: #6b6b6b;
+    font-family: 'Roboto Light' , sans-serif;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.price__number{
+    font-size: 20px;
+    font-family: 'Roboto ' , sans-serif;
+    font-weight: 400;
+    color: #709f01;
+    margin-block-start : 0;
+    margin-block-end: 0;
+    margin-bottom: 0;
+}
+
+
+.buy__one-click{
+    margin-top: 12px;
+}
+.del__avaliable__options{
+    margin-right: 30px;
+
+}
+
+
