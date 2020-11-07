@@ -552,4 +552,7 @@ input[type="textfield"]::placeholder {
 
 }
 
-
+.totalPrice{
+    margin-top: 20px;
+    font-size: 14px;
+}

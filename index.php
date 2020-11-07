@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/slider.css">
-    <script
-            src="https://code.jquery.com/jquery-3.5.1.min.js"
-            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-            crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js" type="text/javascript"></script>
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.10.0/jquery.validate.js" type="text/javascript"></script>
+    <script src="js/validator.js"></script>
 
     <title>Radio Store test</title>
 </head>
@@ -33,7 +33,7 @@
                 <img class="arrow mb-1" src="img/arrow-rigth.png">
                 <a class="p-2 text-dark" href="#">Контакты</a>
             </nav>
-            <a class="" href="#">Вход/Регистрация</a>
+            <a class="login" href="#">Вход/Регистрация</a>
 
 
         </div>
@@ -71,9 +71,10 @@
                    </div>
                    <div class="col cart-block">
                        <div class="img-wrap">
-                           <img class="cart float-left  "  src="img/cart.png" alt="Cart">
+                           <a href="/userPage.php"><img class="cart float-left  "  src="img/cart.png" alt="Cart"></a>
                            <p class="productsCount float-left">0</p>
-                           <p class="productsPrice pl-5">Корзина <br <p class="totalPrice pl-5">0 грн</p> </p>
+                           <p class="productsPrice pl-5">Корзина <br  </p>
+                           <p class="totalPrice pl-5">0 грн</p>
                        </div>
 
                    </div>
@@ -308,7 +309,7 @@
                                             </div>
                                         </div>
                                         <div class="product__list-buttons d-flex">
-                                            <button class="buy--item rounded">КУПИТЬ</button>
+                                            <button class="buy--item rounded" data-price="<?=$row->price ?>" data-id="<?= $row->id ?>">КУПИТЬ</button>
                                             <a class="buy__one-click" href="#">Заказать в 1 клик</a>
 
                                         </div>
@@ -328,29 +329,61 @@
     </section>
 
 
+    </div>
 
-    <footer class="global__footer">
-        <div class="container">
+    <div class="overlay_popup"></div>
 
+    <div class="popup" id="popup1">
+        <div class="object">
+            <form id="register_form" action= "" method= "post">
+                <p>ФИО: </p>
+                <input type= "text" class="name" name= "name" id="name" >
+                <p>E-mail: </p><p> <input type= "email"  class="mail" name= "email" id="email"  required></p>
+                <p>Телефон: </p>
+                <p><input type="text" class="phone" id="phone" name="phone" required> </p>
+                <div class="alert alert-danger mt-2  error-block" id="errorBlock"></div>
+
+                <input type= "submit" id="reg-user" "Отправить">
+            </form>
         </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $('#reg-user').click(function (){
+            var name = $('#name').val();
+            var email = $('#email').val();
+            var phone = $('#phone').val();
 
 
-    </footer>
+            $.ajax({
+                url: 'ajax_refister.php',
+                type: 'POST',
+                cache: false,
+                data: {'username' : name, 'email' : email , 'phone' : phone},
+                dataType: 'html',
+                success: function(data){
+                    if (data == 'Готово'){
+                        $('.submit').text("Done.");
+
+                    }else{
+                        $('#errorBlock').show();
+                        $('#errorBlock').text(data);
+
+                    }
+                }
+            });
+
+        });
 
 
 
 
 
 
+    </script>
 
 
-
-
-
-
-
-
-
+    <script src="js/addToCart.js"></script>
     <script src="js/slider.js"></script>
     <script src="js/main.js"></script>
 </body>
